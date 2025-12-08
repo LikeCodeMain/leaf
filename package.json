@@ -3,12 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npm run build --workspaces",
+    "build:core": "npm run build --workspace=@leaf/core",
+    "build:vue3": "npm run build --workspace=@leaf/vue3",
+    "type-check": "npm run type-check --workspaces",
+    "dev": "npm run dev --workspace=@leaf/vue3"
   },
   "devDependencies": {
-    "vite": "^7.2.4"
+    "typescript": "^5.0.0",
+    "vue": "^3.4.0"
   }
 }
